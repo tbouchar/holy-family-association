@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy Family Association in Canada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            width: 90%;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+        
+        .hero-text p {
+            font-size: 1.8rem;
+            font-style: italic;
+        }
+        
+        nav {
+            background: #8b4513;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #f4e4c1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        h2 {
+            color: #8b4513;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        h3 {
+            color: #8b4513;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+        
+        .prayer-box {
+            background: #faf8f3;
+            border-left: 5px solid #8b4513;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .prayer-box h3 {
+            margin-top: 0;
+        }
+        
+        .prayer-text {
+            font-style: italic;
+            line-height: 1.8;
+            margin: 1rem 0;
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #555;
+        }
+        
+        .statue-list {
+            list-style: none;
+            counter-reset: statute-counter;
+        }
+        
+        .statue-list li {
+            counter-increment: statute-counter;
+            margin: 1.5rem 0;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .statue-list li::before {
+            content: counter(statute-counter) ".";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #8b4513;
+            font-size: 1.2rem;
+        }
+        
+        .indulgence-section {
+            margin: 2rem 0;
+        }
+        
+        .indulgence-section h4 {
+            color: #8b4513;
+            font-size: 1.4rem;
+            margin: 1rem 0;
+        }
+        
+        .indulgence-section ul {
+            margin-left: 2rem;
+        }
+        
+        .indulgence-section li {
+            margin: 0.5rem 0;
+        }
+        
+        footer {
+            background: #8b4513;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect fill='%238b7355' width='1600' height='900'/%3E%3Ctext x='800' y='450' font-family='Georgia' font-size='48' fill='white' text-anchor='middle'%3EHoly Family by Murillo%3C/text%3E%3C/svg%3E" alt="The Holy Family" class="hero-image">
+        <div class="hero-text">
+            <h1>The Holy Family Association</h1>
+            <p>The oldest lay association in Canada renewed</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showPage('home')">Home & Prayers</a></li>
+            <li><a href="#" onclick="showPage('statutes')">Statutes</a></li>
+            <li><a href="#" onclick="showPage('indulgences')">Indulgences</a></li>
+            <li><a href="#" onclick="showPage('kateri')">St. Kateri</a></li>
+            <li><a href="#" onclick="showPage('laval')">St. François de Laval</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <h2>Welcome to the Holy Family Association</h2>
+            <p class="intro-text">
+                Founded in Canada in 1663 and formalized by St. François de Laval in 1672, 
+                the Holy Family Association is a living tradition that brings families closer 
+                to Jesus, Mary, and Joseph through daily prayer and devotion.
+            </p>
+            
+            <div class="prayer-box">
+                <h3>Daily Prayer Before an Image of the Holy Family</h3>
+                <p class="prayer-text">
+                    O MOST loving Jesus, who sanctified your household on earth by your 
+                    surpassing virtues and the example of your home life, mercifully look 
+                    down upon our family, whose members humbly bow before you and implore 
+                    your protection.
+                </p>
+                <p class="prayer-text">
+                    Remember that this family and household are yours, bound and consecrated 
+                    to you by a special devotion. Protect us in your mercy, deliver us from 
+                    all danger, help us in our necessities, and give to us the strength to 
+                    persevere always in the imitation of your Holy Family, so that, by 
+                    serving you and loving you faithfully during this mortal life, we may at 
+                    length give you eternal praise in Heaven.
+                </p>
+                <p class="prayer-text">
+                    O Mary, dearest Mother, we implore your assistance, knowing that your 
+                    divine Son will hear our petitions.
+                </p>
+                <p class="prayer-text">
+                    Most glorious patriarch, St. Joseph, help us with your powerful 
+                    patronage, and place our petitions in Mary's hands, that she may offer 
+                    them to Jesus.
+                </p>
+            </div>
+            
+            <div class="prayer-box">
+                <h3>Annual Consecration to the Holy Family</h3>
+                <p class="prayer-text">
+                    O JESUS, our most loving Saviour, sent down from heaven to enlighten the 
+                    world by your teaching and example, you wanted to spend the greater part 
+                    of your holy life in lowliness at your home in Nazareth, subject to Mary 
+                    and Joseph, and thereby sanctified the household which was to be the 
+                    pattern for all Christian families, in your goodness receive our family 
+                    and household, which consecrates itself to you; protect and guard us, 
+                    strengthen us in your holy fear, establish in our hearts the peace and 
+                    harmony of Christian charity, so that each one of us, becoming like to 
+                    the Holy Family, may be sharers of eternal joy.
+                </p>
+                <p class="prayer-text">
+                    O Mary, most loving Mother of Jesus Christ and our Mother, through your 
+                    love and mercy intercede that Jesus receive this act of consecration and 
+                    pour out upon us his graces and blessings.
+                </p>
+                <p class="prayer-text">
+                    O Joseph, most holy guardian of Jesus and Mary, help us by your prayers 
+                    in all our necessities both of body and soul, that, together with the 
+                    Blessed Virgin Mary and yourself, we shall praise and thank Christ 
+                    Jesus, our divine Redeemer.
+                </p>
+            </div>
+            
+            <div class="prayer-box">
+                <h3>Holy Family Rosary</h3>
+                <p>A three-decade rosary representing the 30 years the Holy Family spent together.</p>
+                <p style="margin-top: 1rem;"><strong>On the large beads:</strong> Our Father</p>
+                <p><strong>On each decade bead:</strong></p>
+                <p class="prayer-text">
+                    "Jesus, Mary, Joseph, Joachim and Anne, come to our aid.<br>
+                    <em>R.</em> Blessed Trinity, one God, have mercy on us."
+                </p>
+                <p style="margin-top: 1rem;"><strong>At the end of each decade:</strong> Glory Be</p>
+                <p style="margin-top: 1rem;">
+                    <em>Focus on the virtues: First decade - St. Joseph; Second decade - Our Lady; Third decade - Child Jesus</em>
+                </p>
+            </div>
+        </div>
+        
+        <!-- STATUTES PAGE -->
+        <div id="statutes" class="page">
+            <h2>Statutes of the Holy Family Association</h2>
+            <p class="intro-text">
+                Established by Pope Leo XIII in his Apostolic Letter <em>Breve Neminem Fugit</em> (1892)
+            </p>
+            
+            <ol class="statue-list">
+                <li>That Christian families may dedicate themselves to the Holy Family of Nazareth, and may worship and hold them as an example, venerating her before her image, with daily prayers, and conforming their lives to them, to their virtues and the example especially to the working class.</li>
+                
+                <li>The pious association has a Cardinal as its protector to moderate the association and preserve its spirit and character.</li>
+                
+                <li>Each diocese would appoint a diocesan moderator.</li>
+                
+                <li>The diocesan moderator would have other parish pastors as curators, to whom the affiliated families in their parish are entrusted. The diocesan moderator, under the authority of the Bishop, will inform the central authority in Rome of the number of families that have been affiliated with the association.</li>
+                
+                <li>The consecration of families will be done according to the formula approved by Pope Leo XIII, which can be done individually by each family, or by several families gathered in a parish church, in the presence of their pastor or his delegate.</li>
+                
+                <li>Each enrolled family will have an image of the Holy Family of Nazareth in their home. The daily Holy Family prayer should be recited in front of this image, strongly recommending the following prayers:
+                    <ul style="margin-top: 1rem; margin-left: 2rem;">
+                        <li>"Jesus, Joseph and Mary, I give you my heart and my soul."</li>
+                        <li>"Jesus, Joseph and Mary, assist me in my final suffering."</li>
+                        <li>"Jesus, Joseph and Mary, breathe peace in my soul."</li>
+                    </ul>
+                </li>
+                
+                <li>The image of the Holy Family can be that mentioned in the letter of Pope Pius IX Jan 5, 1870, or any other image that represents Jesus in his hidden life with his Blessed Mother and her most chaste spouse. The Bishop has the right to exclude those images which do not correspond to the objective of this Association.</li>
+                
+                <li>Families affiliated with this Association enjoy indulgences and spiritual goods granted by the Supreme Pontiffs as indicated by this charter.</li>
+                
+                <li>The Cardinal Protector, together with his councillors, will draw up and publish a directive norm, concerning those special provisions which would be useful for the association, including special feasts, the annual repetition of the act of consecration, holding sessions, etc.</li>
+            </ol>
+        </div>
+        
+        <!-- INDULGENCES PAGE -->
+        <div id="indulgences" class="page">
+            <h2>Indulgences</h2>
+            <p class="intro-text">
+                Granted by Pope Leo XIII in <em>Breve Neminem Fugit</em>
+            </p>
+            
+            <div class="indulgence-section">
+                <h3>Plenary Indulgences</h3>
+                <p><em>With the usual requirements: detachment from sin, prayer for the Holy Father, Holy Communion on the day of the indulgence, and sacramental Confession within 20 days.</em></p>
+                
+                <h4>On Special Occasions:</h4>
+                <ul>
+                    <li>On the day of admission to the Association</li>
+                    <li>On the day of the annual renewal of the Consecration to the Holy Family</li>
+                    <li>Those about to die, if contrite for their sins and invoking the holy name of Jesus</li>
+                </ul>
+                
+                <h4>On Feast Days:</h4>
+                <ul>
+                    <li><strong>December</strong>
+                        <ul>
+                            <li>December 8: Immaculate Conception</li>
+                            <li>December 25: Christmas</li>
+                            <li>Sunday after Christmas: Feast of the Holy Family</li>
+                        </ul>
+                    </li>
+                    <li><strong>January</strong>
+                        <ul>
+                            <li>Epiphany</li>
+                            <li>January 23: Betrothal of Joseph to Mary</li>
+                        </ul>
+                    </li>
+                    <li><strong>February</strong>
+                        <ul>
+                            <li>February 2: Feast of the Presentation (Candlemas)</li>
+                        </ul>
+                    </li>
+                    <li><strong>March</strong>
+                        <ul>
+                            <li>March 19: St. Joseph's Feast Day</li>
+                            <li>March 25: Annunciation</li>
+                        </ul>
+                    </li>
+                    <li><strong>Spring</strong>
+                        <ul>
+                            <li>Easter</li>
+                            <li>Ascension</li>
+                        </ul>
+                    </li>
+                    <li><strong>August</strong>
+                        <ul>
+                            <li>August 15: Assumption</li>
+                        </ul>
+                    </li>
+                    <li><strong>September</strong>
+                        <ul>
+                            <li>Nativity of the Blessed Virgin Mary</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h4>Monthly:</h4>
+                <ul>
+                    <li>On one day each month chosen by members, provided they recite the prescribed prayers together before the image of the Holy Family</li>
+                </ul>
+            </div>
+            
+            <div class="indulgence-section">
+                <h3>Partial Indulgences</h3>
+                <ul>
+                    <li>Praying for the Church in a parish church on: Visitation, Presentation, or the Feast of the Holy Family</li>
+                    <li>On any day members recite the Holy Family prayer before the image of the Holy Family</li>
+                    <li>On any day they attend a meeting of the Association</li>
+                    <li>Every time they recite the daily prayer before the image of the Holy Family</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- ST. KATERI PAGE -->
+        <div id="kateri" class="page">
+            <h2>St. Kateri Tekakwitha and the Holy Family Association</h2>
+            
+            <p style="font-size: 1.1rem; margin: 2rem 0;">
+                St. Kateri Tekakwitha (1656-1680) was one of the earliest and most devoted members 
+                of the Holy Family Association in her village of Kahnawake, outside Montreal. Her 
+                dedication to this pious association exemplifies how the devotion transcended 
+                cultural boundaries and touched the hearts of Canada's indigenous peoples.
+            </p>
+            
+            <h3>The Praying Village of Kahnawake</h3>
+            <p>
+                In the late 1600s, the village of Kahnawake on the south shore of the island of 
+                Montreal was established to give newly converted indigenous Christians a permanent 
+                place to practice their faith while maintaining certain customs. The Jesuits 
+                attended to their spiritual needs through catechism, the sacraments, and spiritual 
+                direction.
+            </p>
+            
+            <p>
+                By 1675, the Confraternity of the Holy Family had a well-established chapter in 
+                Kahnawake. Shortly after her baptism and arrival in the village in 1676, St. Kateri 
+                became an early and highly respected member of this pious association.
+            </p>
+            
+            <h3>A Model of Devotion</h3>
+            <p>
+                St. Kateri's commitment to the Holy Family Association was profound. Though she was 
+                a single laywoman who had taken a vow of virginity, she took her participation in 
+                the Association very seriously. She faithfully attended the weekly meetings on 
+                Sunday afternoons and devoted herself to the prayers and practices of the 
+                Confraternity.
+            </p>
+            
+            <h3>A Universal Devotion</h3>
+            <p>
+                Notably among the first members of the Association were First Nations Christians 
+                from various tribes - Hurons, Mohawk (Iroquois), and other indigenous peoples - who 
+                greatly desired to imitate the Holy Family in their own families. This demonstrates 
+                that the Holy Family Association was not only for traditional families, but welcomed 
+                single people, religious, and all who wished to honor and imitate Jesus, Mary, and 
+                Joseph.
+            </p>
+            
+            <p>
+                St. Kateri's example shows us that devotion to the Holy Family is for everyone - 
+                whether married or single, young or old, from any culture or background. Her short 
+                but profoundly holy life continues to inspire us to deeper devotion to the Holy 
+                Family today.
+            </p>
+        </div>
+        
+        <!-- ST. FRANCOIS DE LAVAL PAGE -->
+        <div id="laval" class="page">
+            <h2>St. François de Laval and the Holy Family Association</h2>
+            
+            <p style="font-size: 1.1rem; margin: 2rem 0;">
+                St. François de Laval (1623-1708), the first Bishop of Quebec, was instrumental in 
+                establishing and promoting the Holy Family Association throughout New France. His 
+                profound devotion to the Holy Family shaped the spiritual life of early Canada and 
+                gave the Universal Church a precious gift.
+            </p>
+            
+            <h3>Early Foundations in Montreal (1663)</h3>
+            <p>
+                The first Holy Family Association was developed locally in Montreal in 1663 by 
+                Jesuit priest Fr. Pierre-Joseph Chaumonot with the help of remarkable figures:
+            </p>
+            <ul style="margin: 1rem 0 1rem 2rem;">
+                <li>Mme. Barbe-d'Ailleboust, devout widow of the third Governor of Canada</li>
+                <li>Sr. Marguerite Bourgeois, founder of the Congregation of Notre Dame (now Saint)</li>
+                <li>Sr. Judith Bresolles, founder of the Hotel Dieu hospital in Montreal</li>
+                <li>Fr. Gabriel Souart, the local pastor in Montreal</li>
+            </ul>
+            <p>
+                The goal was to support family life in the parishes with devotion to the Holy Family.
+            </p>
+            
+            <h3>Bishop Laval's Establishment of the Confraternity (1672)</h3>
+            <p>
+                Bishop Laval himself had a great devotion to the Holy Family. He strongly supported 
+                the Montreal organization and took several important steps:
+            </p>
+            <ul style="margin: 1rem 0 1rem 2rem;">
+                <li>In <strong>1665</strong>, he established the Feast of the Holy Family on the 
+                third Sunday in January (Feast of the Espousals of Joseph and Mary)</li>
+                <li>He encouraged Fr. Chaumonot to seek indulgences from the Holy See for the 
+                organization</li>
+                <li>In <strong>1672</strong>, he created formal statutes for the Confraternity at 
+                the Cathedral in Quebec, expanding on the devotions and indulgences first given to 
+                the original group in Montreal</li>
+            </ul>
+            
+            <h3>Bishop Laval's Original Daily Prayer</h3>
+            <p>
+                Bishop Laval composed a beautiful daily prayer for families to recite before an 
+                image of the Holy Family in their homes:
+            </p>
+            <div class="prayer-box">
+                <p class="prayer-text">
+                    "O Most Holy Family, who led an ordinary life but in the eyes of God practiced 
+                    the most sublime virtues, look kindly upon us.
+                </p>
+                <p class="prayer-text">
+                    You know all of our needs and all of our weaknesses, please come to our rescue. 
+                    Help us bear the burdens of life, and courageously carry out our daily work.
+                </p>
+                <p class="prayer-text">
+                    O Jesus, help all children be as submissive as you were! O Mary, help all mothers 
+                    be as vigilant as you!
+                </p>
+                <p class="prayer-text">
+                    O St. Joseph, help all fathers follow your example as Guardian and Protector of 
+                    the family! O Holy Family, pray for us!
+                </p>
+                <p class="prayer-text">
+                    Lead us from sin in our home and obtain for us a life of peace, innocence and 
+                    unity, so that one day, after having walked in your footsteps here on earth, we 
+                    may share your happiness in Heaven. Amen."
+                </p>
+            </div>
+            
+            <h3>A Canadian Gift to the Universal Church</h3>
+            <p>
+                Over 200 years later, in <strong>1892</strong>, Pope Leo XIII recognized these early 
+                Canadian roots of devotion to the Holy Family and wished to spread the devotion to 
+                the universal Church. In his Apostolic Letter <em>Breve Neminem Fugit</em>, he 
+                consolidated the various associations dedicated to the Holy Family throughout the 
+                Church and highlighted Bishop Laval's early development of the pious association.
+            </p>
+            
+            <p>
+                <strong>The Feast of the Holy Family, originally instituted by Bishop Laval for 
+                Canada, was offered to the whole Church by Pope Leo XIII, who even wrote parts of 
+                the Mass himself.</strong> We now take for granted the fact that the Holy Family 
+                Feast day was a Canadian gift to the Universal Church!
+            </p>
+            
+            <h3>Legacy</h3>
+            <p>
+                St. François de Laval's vision and devotion planted seeds that would blossom not 
+                only throughout New France but eventually throughout the entire Catholic world. His 
+                support for the villagers of Kahnawake, including St. Kateri Tekakwitha, and his 
+                formal establishment of the Confraternity shows how deeply the Holy Family was 
+                venerated in early Canada. Today, as we renew this ancient devotion, we walk in the 
+                footsteps of this great saint and founding father of the Canadian Church.
+            </p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>The Holy Family Association in Canada</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">The oldest lay association in Canada renewed</p>
+    </footer>
+    
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
