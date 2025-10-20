@@ -249,6 +249,70 @@
             text-decoration: underline;
         }
         
+        .events-banner {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+            text-align: center;
+        }
+        
+        .events-banner h2 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .event-card {
+            background: white;
+            color: #333;
+            padding: 2rem;
+            margin: 1.5rem auto;
+            max-width: 700px;
+            border-radius: 8px;
+            border-left: 6px solid #f4e4c1;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .event-card h3 {
+            color: #8b4513;
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .event-date {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #8b4513;
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-details {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 1rem 0;
+        }
+        
+        .event-cta {
+            background: #8b4513;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            display: inline-block;
+            margin-top: 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .event-cta:hover {
+            background: #6d3410;
+        }
+        
         footer {
             background: #8b4513;
             color: white;
@@ -307,10 +371,31 @@
                 to Jesus, Mary, and Joseph through daily prayer and devotion.
             </p>
             
-            <h2 style="margin-top: 3rem;">Events</h2>
-            <p style="font-size: 1.1rem; text-align: center; max-width: 900px; margin: 0 auto 3rem auto; line-height: 1.8;">
-                The first introduction meeting will be at St. Anthony's Church, Calgary, Alberta on November 22, 2025 at 6pm after the 5pm Mass. Come and hear about the launch of this renewed Canadian organization, and mark your calendars for the consecration family potluck on December 28, 2025 at 6pm.
-            </p>
+            <div class="events-banner">
+                <h2>📅 Upcoming Events</h2>
+                
+                <div class="event-card">
+                    <h3>🎉 Launch Meeting</h3>
+                    <div class="event-date">Friday, November 22, 2025</div>
+                    <div class="event-details">
+                        <strong>Time:</strong> 6:00 PM (after 5:00 PM Mass)<br>
+                        <strong>Location:</strong> St. Anthony's Church, Calgary, Alberta<br>
+                        <strong>Come and hear about:</strong> The launch of this renewed Canadian organization and how you can participate in this beautiful devotion!
+                    </div>
+                    <a href="#" onclick="showPage('contact')" class="event-cta">Contact Us for More Info</a>
+                </div>
+                
+                <div class="event-card">
+                    <h3>🍽️ Consecration Family Potluck</h3>
+                    <div class="event-date">Saturday, December 28, 2025</div>
+                    <div class="event-details">
+                        <strong>Time:</strong> 6:00 PM<br>
+                        <strong>Location:</strong> St. Anthony's Church, Calgary, Alberta<br>
+                        <strong>Join us for:</strong> The annual consecration prayer and a family potluck dinner to celebrate our dedication to the Holy Family!
+                    </div>
+                    <a href="#" onclick="showPage('contact')" class="event-cta">RSVP / Get Details</a>
+                </div>
+            </div>
             
             <div class="prayer-box">
                 <h3>Daily Prayer Before an Image of the Holy Family</h3>
